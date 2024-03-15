@@ -5,7 +5,9 @@ return {
 
 		null_ls.setup({
 			sources = {
+				-- Formatter configuration
 				null_ls.builtins.formatting.stylua,
+				null_ls.builtins.formatting.eslint_d,
 			},
 		})
 

@@ -18,8 +18,10 @@ return {
 		config = function()
 			local lspconfig = require("lspconfig")
 
-			-- Connect communication between nvim and mason-lsp server
+			-- Connect communication between nvim and mason-lsp
 			lspconfig.lua_ls.setup({})
+			lspconfig.rust_analyzer.setup({})
+			lspconfig.tsserver.setup({})
 		end,
 	},
 }
