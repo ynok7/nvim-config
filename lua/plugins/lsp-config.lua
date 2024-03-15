@@ -1,6 +1,7 @@
 return {
 	{
 		"williamboman/mason.nvim",
+		lazy = false,
 		config = function()
 			require("mason").setup()
 		end,
@@ -16,12 +17,20 @@ return {
 		"neovim/nvim-lspconfig",
 		lazy = false,
 		config = function()
+			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+			-- connect communication between nvim and mason-lsp
 			local lspconfig = require("lspconfig")
 
-			-- Connect communication between nvim and mason-lsp
-			lspconfig.lua_ls.setup({})
-			lspconfig.rust_analyzer.setup({})
-			lspconfig.tsserver.setup({})
+			lspconfig.lua_ls.setup({
+				capabilities = capabilities
+			})
+			lspconfig.rust_analyzer.setup({
+				capabilities = capabilities
+			})
+			lspconfig.tsserver.setup({
+				capabilities = capabilities
+			})
 		end,
 	},
 }
