@@ -1,4 +1,4 @@
-require("keymap")
+require("vim-settings")
 
 -- Using Lazy.nvim as package manager
 
